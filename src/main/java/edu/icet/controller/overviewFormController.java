@@ -4,12 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class overviewFormController {
 
+    @FXML
+    public Label pageTitle;
     @FXML
     private Button btnCategories;
 
@@ -75,6 +78,8 @@ public class overviewFormController {
 
     @FXML
     void userManagementOnClick(ActionEvent event) throws IOException {
+        pageTitle.setText("User Management");
+
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageEmployeeForm.fxml"));
         childAnchorpane.getChildren().setAll(pane);
     }

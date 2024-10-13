@@ -85,14 +85,14 @@
          </font>
       </Label>
       <Line endX="934.492919921875" endY="7.62939453125E-6" layoutX="340.0" layoutY="73.0" startX="-100.0" stroke="#be95c4" />
-      <Label layoutX="276.0" layoutY="21.0" prefHeight="38.0" prefWidth="132.0" text="Products" textFill="#be95c4">
+      <Label fx:id="pageTitle" layoutX="276.0" layoutY="21.0" prefHeight="38.0" prefWidth="405.0" text="Products" textFill="#be95c4">
          <font>
             <Font name="Algerian" size="24.0" />
          </font>
       </Label>
       <TextField layoutX="940.0" layoutY="27.0" prefHeight="26.0" prefWidth="239.0" promptText="Search" style="-fx-background-radius: 10;" />
       <Button layoutX="1144.0" layoutY="27.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" style="-fx-background-radius: 10; -fx-background-color: 000000;" />
-      <AnchorPane layoutX="247.0" layoutY="78.0" prefHeight="586.0" prefWidth="1022.0" fx:id="childAnchorpane">
+      <AnchorPane fx:id="childAnchorpane" layoutX="247.0" layoutY="78.0" prefHeight="586.0" prefWidth="1022.0">
 
       </AnchorPane>
 
