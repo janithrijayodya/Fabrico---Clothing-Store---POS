@@ -5,10 +5,7 @@ import edu.icet.util.CrudUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -23,6 +20,7 @@ public class manageSupplierFormController implements Initializable {
     public TableColumn colSupplierEmail;
     public Button btnSupReload;
     public Button btnSupPrint;
+    public TableView tbl;
     @FXML
     private Button btnSupAdd;
 

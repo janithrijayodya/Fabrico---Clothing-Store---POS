@@ -50,8 +50,11 @@ public class overviewFormController {
     }
 
     @FXML
-    void employeeReportOnClick(ActionEvent event) {
+    void employeeReportOnClick(ActionEvent event) throws IOException {
+        pageTitle.setText("Employee Report");
 
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/employeeReportForm.fxml"));
+        childAnchorpane.getChildren().setAll(pane);
     }
 
     @FXML
@@ -87,7 +90,7 @@ public class overviewFormController {
         pageTitle.setText("User Management");
 
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageEmployeeForm.fxml"));
-        childAnchorpane.getChildren().clear();
+
         childAnchorpane.getChildren().setAll(pane);
 
 
