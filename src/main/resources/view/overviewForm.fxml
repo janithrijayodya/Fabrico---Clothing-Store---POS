@@ -68,12 +68,12 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnUserManagement" layoutX="47.0" layoutY="438.0" mnemonicParsing="false" onAction="#userManagementOnClick" prefHeight="38.0" prefWidth="162.0" style="-fx-background-color: #9f86c0;" text="User Management" textFill="WHITE">
+      <Button fx:id="btnUserManagement" layoutX="48.0" layoutY="437.0" mnemonicParsing="false" onAction="#userManagementOnClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: #9f86c0;" text="Employee Management" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnProductManagement" layoutX="51.0" layoutY="476.0" mnemonicParsing="false" onAction="#productManagementOnClick" prefHeight="38.0" prefWidth="88.0" style="-fx-background-color: #9f86c0;" text="Products" textFill="WHITE">
+      <Button fx:id="btnProductManagement" layoutX="44.0" layoutY="514.0" mnemonicParsing="false" onAction="#productManagementOnClick" prefHeight="38.0" prefWidth="88.0" style="-fx-background-color: #9f86c0;" text="Products" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -95,6 +95,11 @@
       <AnchorPane fx:id="childAnchorpane" layoutX="247.0" layoutY="78.0" prefHeight="586.0" prefWidth="1022.0">
 
       </AnchorPane>
+      <Button fx:id="btnSupplierManagement" layoutX="47.0" layoutY="475.0" mnemonicParsing="false" onAction="#supplierManagementOnClick" prefHeight="38.0" prefWidth="177.0" style="-fx-background-color: #9f86c0;" text="Supplier Management" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
 
    </children>
 </AnchorPane>

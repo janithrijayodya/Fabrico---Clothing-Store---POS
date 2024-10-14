@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -13,6 +14,8 @@ public class overviewFormController {
 
     @FXML
     public Label pageTitle;
+    public ComboBox comboBpx;
+    public Button btnSupplierManagement;
     @FXML
     private Button btnCategories;
 
@@ -72,8 +75,11 @@ public class overviewFormController {
     }
 
     @FXML
-    void supplierReportOnClick(ActionEvent event) {
+    void supplierReportOnClick(ActionEvent event) throws IOException {
+        pageTitle.setText("Supplier Report");
 
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/supplierReportForm.fxml"));
+        childAnchorpane.getChildren().setAll(pane);
     }
 
     @FXML
@@ -81,7 +87,17 @@ public class overviewFormController {
         pageTitle.setText("User Management");
 
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageEmployeeForm.fxml"));
+        childAnchorpane.getChildren().clear();
         childAnchorpane.getChildren().setAll(pane);
+
+
     }
 
+
+    public void supplierManagementOnClick(ActionEvent actionEvent) throws IOException {
+        pageTitle.setText("User Management");
+
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageSupplierForm.fxml"));
+        childAnchorpane.getChildren().setAll(pane);
+    }
 }

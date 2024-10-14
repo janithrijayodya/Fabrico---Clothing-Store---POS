@@ -15,16 +15,6 @@
             <Font name="Algerian" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnEmployee" layoutX="670.0" layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Employee" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnSupplier" layoutX="774.0" layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Supplier" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
       <TextField fx:id="txtEmpId" layoutX="237.0" layoutY="203.0" prefHeight="26.0" prefWidth="195.0" promptText="Emp ID" style="-fx-background-radius: 5;" />
       <TextField fx:id="txtEmpName" layoutX="560.0" layoutY="203.0" prefHeight="26.0" prefWidth="195.0" promptText="Emp Name" style="-fx-background-radius: 5;" />
       <TextField fx:id="txtEmpCompany" layoutX="237.0" layoutY="298.0" prefHeight="26.0" prefWidth="195.0" promptText="Company" style="-fx-background-radius: 5;" />

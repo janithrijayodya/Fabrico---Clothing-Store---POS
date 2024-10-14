@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="585.0" prefWidth="1020.0" style="-fx-background-color: EEE1F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.Supplier.manageSupplierFormController">
+   <children>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#dbcdee" height="473.0" layoutX="132.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="741.0" />
+      <Line endX="640.0000610351562" layoutX="232.0" layoutY="120.0" startX="-100.0" stroke="#cdb4db" />
+      <Label layoutX="177.0" layoutY="74.0" prefHeight="26.0" prefWidth="106.0" text="Supplier Report">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="179.0" layoutY="100.0" prefHeight="18.0" prefWidth="95.0" text="date" />
+      <ImageView fitHeight="31.0" fitWidth="106.0" layoutX="732.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/logo.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="174.0" layoutY="154.0" prefHeight="308.0" prefWidth="659.0">
+        <columns>
+          <TableColumn fx:id="colSupplierID" prefWidth="135.20005798339844" text="Supplier ID" />
+          <TableColumn fx:id="colSupplierName" prefWidth="172.7999267578125" text="Supplier Name" />
+            <TableColumn fx:id="colSupplierCompany" prefWidth="172.7999267578125" text="Company" />
+            <TableColumn fx:id="colSupplierEmail" prefWidth="176.79997558593755" text="Email" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSupReload" layoutX="634.0" layoutY="492.0" mnemonicParsing="false" onAction="#btnSupReloadOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="RELOAD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSupPrint" layoutX="745.0" layoutY="492.0" mnemonicParsing="false" onAction="#btnSupPrintOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="PRINT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -3,16 +3,21 @@ package edu.icet.controller.Employee;
 import edu.icet.model.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class manageEmployeeFormController implements Initializable {
 
+    public ComboBox combo;
     @FXML
     private Button btnEmpAdd;
 
@@ -142,4 +147,6 @@ public class manageEmployeeFormController implements Initializable {
         String setEmployeeid = service.generateEmployeeID();
         txtEmpId.setText(setEmployeeid);
     }
+
+
 }
