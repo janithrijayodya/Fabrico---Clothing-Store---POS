@@ -1,6 +1,7 @@
 package edu.icet.controller.EmployeeReport;
 
-import edu.icet.model.Employee;
+import edu.icet.entity.EmployeeEntity;
+import edu.icet.util.ServiceType;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import service.ServiceFactory;
+import service.custom.EmployeeService;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -36,9 +39,10 @@ public class employeeReportFormController implements Initializable {
     private Label lblDate;
 
     @FXML
-    private TableView<Employee> tblEmployee;
+    private TableView<EmployeeEntity> tblEmployee;
 
-    employeeReportService service = employeeReportController.getInstance();
+    EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+
 
     @FXML
     void btnEmpPrintOnClick(ActionEvent event) {
@@ -46,7 +50,7 @@ public class employeeReportFormController implements Initializable {
     }
 
     public void loadTable(){
-        ObservableList<Employee> load = service.getAll();
+        ObservableList<EmployeeEntity> load = employeeService.getAll();
         tblEmployee.setItems(load);
     }
 

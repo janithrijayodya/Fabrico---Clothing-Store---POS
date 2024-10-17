@@ -1,29 +1,22 @@
-package edu.icet.controller.Employee;
+package repository.custom.Impl;
 
 import edu.icet.db.DBConnection;
-import edu.icet.model.Employee;
+import edu.icet.entity.EmployeeEntity;
 import edu.icet.util.CrudUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import repository.custom.EmployeeDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class manageEmployeeController implements employeeService{
-
-    private static manageEmployeeController instance;
-
-    private manageEmployeeController() {
-    }
-
-    public static manageEmployeeController getInstance() {
-        return instance == null ? instance = new manageEmployeeController() : instance;
-    }
-
+public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
-    public boolean addEmployee(Employee employee) {
-
+    public boolean add(EmployeeEntity employee) {
+        System.out.println("repo"+employee);
         String SQL = "INSERT INTO employee VALUES (?,?,?,?)";
 
         try {
@@ -42,23 +35,21 @@ public class manageEmployeeController implements employeeService{
         }
     }
 
-
-
     @Override
-    public Employee searchEmployee(String EmpId) {
-        System.out.println(EmpId);
+    public EmployeeEntity search(String id) {
+        System.out.println(id);
         String SQL = "SELECT * FROM employee WHERE employee_id=?";
 
         try {
-            ResultSet resultSet = CrudUtil.execute(SQL, EmpId);
+            ResultSet resultSet = CrudUtil.execute(SQL, id);
 
             while (resultSet.next()){
-                return new Employee(
+                return new EmployeeEntity(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4)
-                        );
+                );
             }
 
         } catch (SQLException e) {
@@ -68,11 +59,11 @@ public class manageEmployeeController implements employeeService{
     }
 
     @Override
-    public boolean updateEmployee(Employee employee) {
+    public boolean update(EmployeeEntity employee) {
         String SQL = "UPDATE employee SET  name=?, company=?, email=? ";
 
         try {
-           return CrudUtil.execute(SQL,
+            return CrudUtil.execute(SQL,
                     employee.getEmpName(),
                     employee.getEmpCompany(),
                     employee.getEmpEmail()
@@ -84,18 +75,18 @@ public class manageEmployeeController implements employeeService{
     }
 
     @Override
-    public boolean removeEmployee(String EmpId) {
+    public boolean remove(String id) {
         String SQL = "DELETE FROM employee WHERE employee_id=?";
 
         try {
-            return CrudUtil.execute(SQL,EmpId);
+            return CrudUtil.execute(SQL,id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public String generateEmployeeID() {
+    public String generateID() {
         String SQL = "SELECT employee_id FROM employee ORDER BY employee_id DESC LIMIT 1";
 
         try {
@@ -115,6 +106,32 @@ public class manageEmployeeController implements employeeService{
                 // If no employees exist, start with "EID0001"
                 return "EID0001";
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public ObservableList<EmployeeEntity> getAll() {
+        ObservableList<EmployeeEntity> employeeObservableList = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM employee";
+
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL);
+
+            while (resultSet.next()){
+                employeeObservableList.add(
+                        new EmployeeEntity(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3),
+                                resultSet.getString(4)
+                        )
+                );
+            }
+
+            return employeeObservableList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

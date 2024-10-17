@@ -1,15 +1,17 @@
 package edu.icet.controller.Supplier;
 
-import edu.icet.model.Supplier;
-import edu.icet.util.CrudUtil;
+import edu.icet.entity.SupplierEntity;
+import edu.icet.util.ServiceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import service.ServiceFactory;
+import service.SuperService;
+import service.custom.EmployeeService;
+import service.custom.SupplierService;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class manageSupplierFormController implements Initializable {
@@ -45,24 +47,22 @@ public class manageSupplierFormController implements Initializable {
     @FXML
     private TextField txtSupplierName;
 
-    supplierService service = manageSupplierController.getInstance();
+    SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
 
     @FXML
     void btnSupAddOnClick(ActionEvent event) {
-        Supplier supplier = new Supplier(
+        SupplierEntity supplier = new SupplierEntity(
                txtSupplierId.getText(),
                txtSupplierName.getText(),
                txtSupplierCompany.getText(),
                txtSupplierEmail.getText()
         );
 
-        if(service.addSupplier(supplier)){
+        if(supplierService.addSupplier(supplier)){
             clearSupplierForm();
             setGeneratedID();
             new Alert(Alert.AlertType.INFORMATION,"Supplier added !!").show();
 
-            String supplierID = service.generateSupplierID();
-            txtSupplierId.setText(supplierID);
         }else{
             clearSupplierForm();
             setGeneratedID();
@@ -74,7 +74,7 @@ public class manageSupplierFormController implements Initializable {
     @FXML
     void btnSupRemoveOnClick(ActionEvent event) {
         String supId = txtSupplierId.getText();
-        if(service.removeSupplier(supId)){
+        if(supplierService.removeSupplier(supId)){
             clearSupplierForm();
             setGeneratedID();
         }else {
@@ -89,7 +89,7 @@ public class manageSupplierFormController implements Initializable {
 
         String supId = txtSupplierId.getText();
 
-        Supplier supplier =service.searchSupplier(supId);
+        SupplierEntity supplier =supplierService.searchSupplier(supId);
 
         if(supplier != null){
             txtSupplierId.setText(supplier.getSupplierID());
@@ -106,14 +106,14 @@ public class manageSupplierFormController implements Initializable {
 
     @FXML
     void btnSupUpdateOnClick(ActionEvent event) {
-        Supplier supplier = new Supplier(
+        SupplierEntity supplier = new SupplierEntity(
                 txtSupplierId.getText(),
                 txtSupplierName.getText(),
                 txtSupplierCompany.getText(),
                 txtSupplierEmail.getText()
         );
 
-        if(service.updateSupplier(supplier)){
+        if(supplierService.updateSupplier(supplier)){
             clearSupplierForm();
             setGeneratedID();
         }else {
@@ -137,7 +137,7 @@ public class manageSupplierFormController implements Initializable {
     }
 
     public void setGeneratedID(){
-        String supplierID = service.generateSupplierID();
+        String supplierID = supplierService.generateSupplierID();
         txtSupplierId.setText(supplierID);
     }
 

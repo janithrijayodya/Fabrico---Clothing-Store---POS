@@ -1,4 +1,4 @@
-package edu.icet.model;
+package edu.icet.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 
-public class Supplier {
+public class SupplierEntity {
     private String SupplierID;
 
     private String SupplierName;

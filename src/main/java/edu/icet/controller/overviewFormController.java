@@ -68,8 +68,11 @@ public class overviewFormController {
     }
 
     @FXML
-    void productManagementOnClick(ActionEvent event) {
+    void productManagementOnClick(ActionEvent event) throws IOException {
+        pageTitle.setText("Product Management");
 
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageProduct.fxml"));
+        childAnchorpane.getChildren().setAll(pane);
     }
 
     @FXML

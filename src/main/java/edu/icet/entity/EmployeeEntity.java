@@ -1,4 +1,4 @@
-package edu.icet.model;
+package edu.icet.entity;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 @Getter
 
-public class Employee {
+public class EmployeeEntity {
 
     private String EmpId;
 

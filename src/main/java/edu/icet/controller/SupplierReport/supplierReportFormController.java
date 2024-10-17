@@ -1,6 +1,7 @@
 package edu.icet.controller.SupplierReport;
 
-import edu.icet.model.Supplier;
+import edu.icet.entity.SupplierEntity;
+import edu.icet.util.ServiceType;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import service.ServiceFactory;
+import service.custom.EmployeeService;
+import service.custom.SupplierService;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -37,9 +41,9 @@ public class supplierReportFormController implements Initializable {
     private TableColumn<?, ?> colSupplierName;
 
     @FXML
-    private TableView<Supplier> tblSupplier;
+    private TableView<SupplierEntity> tblSupplier;
 
-    suppplierReportService service = supplierReportController.getInstance();
+    SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
 
     @FXML
     void btnSupPrintOnClick(ActionEvent event) {
@@ -48,7 +52,7 @@ public class supplierReportFormController implements Initializable {
 
 
     public void loadTable(){
-        ObservableList<Supplier> load = service.getAll();
+        ObservableList<SupplierEntity> load = supplierService.getAll();
         tblSupplier.setItems(load);
     }
 
