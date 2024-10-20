@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="587.0" prefWidth="1022.0" style="-fx-background-color: EEE1F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.MakeOrder.makeOrderFormController">
+   <children>
+      <Button fx:id="btnEmpRemove" layoutX="46.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnEmpRemoveOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Gents" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEmpRemove1" layoutX="141.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnEmpRemoveOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Ladies" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEmpRemove2" layoutX="236.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnEmpRemoveOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Kids" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="587.0" layoutX="756.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
+   </children>
+</AnchorPane>

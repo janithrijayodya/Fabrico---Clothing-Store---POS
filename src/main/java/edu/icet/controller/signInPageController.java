@@ -1,5 +1,6 @@
 package edu.icet.controller;
 
+import edu.icet.controller.MakeOrder.makeOrderFormController;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,6 +62,8 @@ public class signInPageController implements Initializable {
     @FXML
     private TextField txtManSignUpPswrd;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lblSignUp.setVisible(false);
@@ -76,6 +79,11 @@ public class signInPageController implements Initializable {
 
     @FXML
     void btnSignInOnClick(ActionEvent event) {
+
+        makeOrderFormController id =  new makeOrderFormController();
+        id.getUserID(txtEmpSignInName.getText());
+//        System.out.println(txtEmpSignInName.getText());
+
         Stage stage =  new Stage();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/overviewForm.fxml"))));

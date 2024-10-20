@@ -45,8 +45,11 @@ public class overviewFormController {
     private AnchorPane childAnchorpane;
 
     @FXML
-    void categoriesOnClick(ActionEvent event) {
+    void categoriesOnClick(ActionEvent event) throws IOException {
+        pageTitle.setText("Categories");
 
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/MakeOrder.fxml"));
+        childAnchorpane.getChildren().setAll(pane);
     }
 
     @FXML

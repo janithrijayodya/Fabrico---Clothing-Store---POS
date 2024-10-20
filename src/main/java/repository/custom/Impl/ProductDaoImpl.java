@@ -1,7 +1,9 @@
 package repository.custom.Impl;
 
 import edu.icet.entity.ProductEntity;
+import edu.icet.entity.SupplierEntity;
 import edu.icet.util.CrudUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import repository.custom.ProductDao;
 
@@ -65,7 +67,32 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public ObservableList<ProductEntity> getAll() {
-        return null;
+
+        ObservableList<ProductEntity> productEntityObservableList = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM product ";
+
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL);
+
+            while (resultSet.next()){
+                productEntityObservableList.add(
+                        new ProductEntity(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3),
+                                resultSet.getDouble(4),
+                                resultSet.getInt(5),
+                                resultSet.getString(6),
+                                resultSet.getString(7)
+                        )
+                );
+            }
+
+            return productEntityObservableList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

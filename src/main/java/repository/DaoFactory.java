@@ -2,6 +2,7 @@ package repository;
 
 import edu.icet.util.DaoType;
 import repository.custom.Impl.EmployeeDaoImpl;
+import repository.custom.Impl.OrderDaoImpl;
 import repository.custom.Impl.ProductDaoImpl;
 import repository.custom.Impl.SupplierDaoImpl;
 
@@ -19,6 +20,7 @@ public class DaoFactory {
             case EMPLOYEE:return (T) new EmployeeDaoImpl();
             case SUPPLIER:return (T) new SupplierDaoImpl();
             case PRODUCT:return (T) new ProductDaoImpl();
+            case ORDER: return (T) new OrderDaoImpl();
         }
         return null;
     }
