@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="586.0" prefWidth="1022.0" style="-fx-background-color: EEE1F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.Product.manageProductFormController">
+   <children>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d9d9d9" height="479.0" layoutX="99.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="825.0" />
+      <Label layoutX="430.0" layoutY="100.0" prefHeight="48.0" prefWidth="183.0" text="Manage PRODUCT" textFill="#691bcf">
+         <font>
+            <Font name="Algerian" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtProductId" layoutX="179.0" layoutY="200.0" prefHeight="26.0" prefWidth="195.0" promptText="Product ID" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtProductName" layoutX="424.0" layoutY="200.0" prefHeight="26.0" prefWidth="195.0" promptText="Product Name" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtProductSize" layoutX="179.0" layoutY="281.0" prefHeight="26.0" prefWidth="195.0" promptText="Size" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtProductQty" layoutX="424.0" layoutY="281.0" prefHeight="26.0" prefWidth="195.0" promptText="Quantity" style="-fx-background-radius: 5;" />
+      <Button fx:id="btnProductAdd" layoutX="743.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnProductAddOnClick" prefHeight="39.0" prefWidth="118.0" style="-fx-background-color: CDB4DB;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="imageView" fitHeight="177.0" fitWidth="195.0" layoutX="666.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnAddImage" layoutX="724.0" layoutY="159.0" mnemonicParsing="false" onAction="#btnAddImageOnClick" text="Add Image" textFill="#7b7070">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblImage" layoutX="430.0" layoutY="437.0" prefHeight="16.0" prefWidth="431.0" textFill="#696464">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtProductPrice" layoutX="179.0" layoutY="357.0" prefHeight="26.0" prefWidth="195.0" promptText="Price" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtProductType" layoutX="424.0" layoutY="357.0" prefHeight="26.0" prefWidth="195.0" promptText="Type ( Gents ,Ladies ,Kids )" style="-fx-background-radius: 5;" />
+      <ComboBox fx:id="comboSupplierID" layoutX="179.0" layoutY="432.0" prefHeight="26.0" prefWidth="195.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="587.0" prefWidth="1022.0" style="-fx-background-color: EEE1F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.MakeOrder.makeOrderFormController">
+   <children>
+      <Button fx:id="btnGents" layoutX="46.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnGentsOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Gents" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLadies" layoutX="141.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnLadiesOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Ladies" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnKids" layoutX="236.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnKidsOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Kids" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0dae1" height="587.0" layoutX="713.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="309.0" />
+      <Label layoutX="836.0" layoutY="27.0" prefHeight="26.0" prefWidth="106.0" text="Order Details" textFill="#4b4a4a">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="741.0" layoutY="76.0" prefHeight="18.0" prefWidth="58.0" text="Order ID" textFill="#797474" />
+      <Label layoutX="741.0" layoutY="101.0" prefHeight="18.0" prefWidth="74.0" text="Employee ID" textFill="#797474" />
+      <Label layoutX="741.0" layoutY="129.0" prefHeight="18.0" prefWidth="36.0" text="Date" textFill="#797474" />
+      <Label fx:id="lblOrderID" layoutX="928.0" layoutY="77.0" prefHeight="18.0" prefWidth="86.0" text="id" textAlignment="RIGHT" textFill="#212020" />
+      <Label fx:id="lblEmpId" layoutX="928.0" layoutY="101.0" prefHeight="18.0" prefWidth="86.0" text="id" textAlignment="RIGHT" textFill="#212020" />
+      <Label fx:id="lblDate" layoutX="928.0" layoutY="129.0" prefHeight="18.0" prefWidth="86.0" text="id" textAlignment="RIGHT" textFill="#212020" />
+
+      <Label layoutX="757.0" layoutY="355.0" prefHeight="18.0" prefWidth="58.0" text="Payment">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="checkBoxCash" layoutX="841.0" layoutY="356.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="58.0" text="Cash" />
+      <CheckBox fx:id="checkBoxCard" layoutX="923.0" layoutY="356.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="58.0" text="Card" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9f5fa" height="144.0" layoutX="747.0" layoutY="388.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="244.0" />
+      <Label layoutX="755.0" layoutY="413.0" prefHeight="18.0" prefWidth="74.0" text="Sub Total" textFill="#797474" />
+      <Label layoutX="755.0" layoutY="444.0" prefHeight="18.0" prefWidth="74.0" text="Discount" textFill="#797474" />
+      <Label layoutX="755.0" layoutY="496.0" prefHeight="18.0" prefWidth="74.0" text="Total Amount" textFill="#797474" />
+      <Line endX="145.0" layoutX="846.0" layoutY="481.0" startX="-100.0" stroke="#9f86c0" />
+      <Label fx:id="lblSubTotal" layoutX="885.0" layoutY="413.0" prefHeight="18.0" prefWidth="95.0" text="id" textAlignment="RIGHT" textFill="#212020" />
+      <Label layoutX="954.0" layoutY="444.0" prefHeight="18.0" prefWidth="26.0" text="5%" textAlignment="RIGHT" textFill="#212020" />
+      <Label fx:id="lblTotal" layoutX="880.0" layoutY="496.0" prefHeight="18.0" prefWidth="95.0" text="id" textAlignment="RIGHT" textFill="#080808">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnProceed" layoutX="829.0" layoutY="546.0" mnemonicParsing="false" onAction="#btnProceedOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Proceed" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblProducts" layoutX="46.0" layoutY="105.0" prefHeight="434.0" prefWidth="584.0">
+        <columns>
+          <TableColumn fx:id="colProductId" prefWidth="111.99999618530273" text="Product ID" />
+          <TableColumn fx:id="colName" prefWidth="145.6000213623047" text="Name" />
+            <TableColumn fx:id="colSize" prefWidth="91.20001220703125" text="Size" />
+            <TableColumn fx:id="colPrice" prefWidth="137.5999755859375" text="Price" />
+            <TableColumn fx:id="colQty" prefWidth="97.5999755859375" text="Quantity" />
+        </columns>
+      </TableView>
+      <Rectangle fx:id="orderItems" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="175.0" layoutX="734.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
+      <Label fx:id="lblItem" layoutX="746.0" layoutY="182.0" prefHeight="155.0" prefWidth="141.0" text="Product">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPrice" layoutX="917.0" layoutY="182.0" prefHeight="155.0" prefWidth="74.0" text="Price">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
