@@ -1,10 +1,13 @@
 package edu.icet.controller.Product;
 
+import edu.icet.controller.MakeOrder.makeOrderFormController;
 import edu.icet.entity.ProductEntity;
 import edu.icet.util.ServiceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,13 +21,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class manageProductFormController implements Initializable {
 
+    @FXML
     public Button btnProductAdd;
     public TextField txtSupplierID;
+    @FXML
     public ComboBox comboSupplierID;
     @FXML
     private Button btnAddImage;
@@ -53,7 +59,9 @@ public class manageProductFormController implements Initializable {
     @FXML
     private TextField txtProductType;
 
+    @FXML
     private byte[] imageBytes;
+
 
     ProductService productService = ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
 
@@ -110,6 +118,7 @@ public class manageProductFormController implements Initializable {
         comboSupplierID.getItems().addAll(SupplierIDs);
 
         getGeneratedID();
+
     }
 
     public void getGeneratedID(){

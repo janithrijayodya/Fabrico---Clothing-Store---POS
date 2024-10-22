@@ -1,4 +1,9 @@
 package service.custom;
 
-public interface OrderDetailsService {
+import edu.icet.entity.OrderDetailsEntity;
+import service.SuperService;
+
+public interface OrderDetailsService extends SuperService {
+
+    boolean addOrderDetails(OrderDetailsEntity orderDetails);
 }

@@ -1,10 +1,8 @@
 package service;
 
 import edu.icet.util.ServiceType;
-import service.custom.Impl.EmployeeServiceImpl;
-import service.custom.Impl.OrderServiceImpl;
-import service.custom.Impl.ProductServiceImpl;
-import service.custom.Impl.SupplierServiceImpl;
+import service.custom.Impl.*;
+import service.custom.OrderDetailsService;
 
 public class ServiceFactory {
 
@@ -23,6 +21,7 @@ public class ServiceFactory {
             case PRODUCT:return (T) new ProductServiceImpl();
             case SUPPLIER:return (T) new SupplierServiceImpl();
             case ORDER: return (T) new OrderServiceImpl();
+            case ORDERDETAILS: return (T) new OrderDetailsServiceImpl();
         }
         return null;
     }

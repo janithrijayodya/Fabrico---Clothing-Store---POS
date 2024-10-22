@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -52,9 +53,9 @@
       <Label layoutX="755.0" layoutY="444.0" prefHeight="18.0" prefWidth="74.0" text="Discount" textFill="#797474" />
       <Label layoutX="755.0" layoutY="496.0" prefHeight="18.0" prefWidth="74.0" text="Total Amount" textFill="#797474" />
       <Line endX="145.0" layoutX="846.0" layoutY="481.0" startX="-100.0" stroke="#9f86c0" />
-      <Label fx:id="lblSubTotal" layoutX="885.0" layoutY="413.0" prefHeight="18.0" prefWidth="95.0" text="id" textAlignment="RIGHT" textFill="#212020" />
-      <Label layoutX="954.0" layoutY="444.0" prefHeight="18.0" prefWidth="26.0" text="5%" textAlignment="RIGHT" textFill="#212020" />
-      <Label fx:id="lblTotal" layoutX="880.0" layoutY="496.0" prefHeight="18.0" prefWidth="95.0" text="id" textAlignment="RIGHT" textFill="#080808">
+      <Label fx:id="lblSubTotal" layoutX="905.0" layoutY="413.0" prefHeight="18.0" prefWidth="74.0" text="id" textAlignment="RIGHT" textFill="#212020" />
+      <Label layoutX="939.0" layoutY="444.0" prefHeight="18.0" prefWidth="26.0" text="5%" textAlignment="RIGHT" textFill="#212020" />
+      <Label fx:id="lblTotal" layoutX="905.0" layoutY="496.0" prefHeight="18.0" prefWidth="74.0" text="id" textAlignment="RIGHT" textFill="#080808">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -64,7 +65,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TableView fx:id="tblProducts" layoutX="46.0" layoutY="105.0" prefHeight="434.0" prefWidth="584.0">
+      <TableView fx:id="tblProducts" layoutX="68.0" layoutY="101.0" prefHeight="454.0" prefWidth="582.0">
         <columns>
           <TableColumn fx:id="colProductId" prefWidth="111.99999618530273" text="Product ID" />
           <TableColumn fx:id="colName" prefWidth="145.6000213623047" text="Name" />
@@ -73,15 +74,28 @@
             <TableColumn fx:id="colQty" prefWidth="97.5999755859375" text="Quantity" />
         </columns>
       </TableView>
-      <Rectangle fx:id="orderItems" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="175.0" layoutX="734.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <Label fx:id="lblItem" layoutX="746.0" layoutY="182.0" prefHeight="155.0" prefWidth="141.0" text="Product">
+      <ScrollPane layoutX="740.0" layoutY="167.0" prefHeight="175.0" prefWidth="254.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Rectangle fx:id="orderItems" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="209.0" layoutX="-18.0" layoutY="-19.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="290.0" />
+                  <Label fx:id="lblItem" layoutX="14.0" layoutY="10.0" prefHeight="162.0" prefWidth="127.0">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrice" layoutX="158.0" layoutY="9.0" prefHeight="158.0" prefWidth="74.0">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label fx:id="lblTotal1" layoutX="876.0" layoutY="496.0" prefHeight="18.0" prefWidth="26.0" text="Rs: " textAlignment="RIGHT" textFill="#080808">
          <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblPrice" layoutX="917.0" layoutY="182.0" prefHeight="155.0" prefWidth="74.0" text="Price">
-         <font>
-            <Font name="Arial" size="12.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
    </children>
