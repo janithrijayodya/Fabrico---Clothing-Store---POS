@@ -17,7 +17,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public boolean add(EmployeeEntity employee) {
         System.out.println("repo"+employee);
-        String SQL = "INSERT INTO employee VALUES (?,?,?,?)";
+        String SQL = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
 
         try {
             Connection connection = DBConnection.getInstance().getConnection();
@@ -27,6 +27,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
             pstm.setObject(2,employee.getEmpName());
             pstm.setObject(3,employee.getEmpCompany());
             pstm.setObject(4,employee.getEmpEmail());
+            pstm.setObject(5,employee.getEmpAddress());
+            pstm.setObject(6,employee.getEmpPassword());
 
             return  pstm.executeUpdate()>0;
 
@@ -48,7 +50,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
-                        resultSet.getString(4)
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6)
                 );
             }
 
@@ -60,13 +64,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public boolean update(EmployeeEntity employee) {
-        String SQL = "UPDATE employee SET  name=?, company=?, email=? ";
+        String SQL = "UPDATE employee SET  name=?, company=?, email=?, address=?, password=?";
 
         try {
             return CrudUtil.execute(SQL,
                     employee.getEmpName(),
                     employee.getEmpCompany(),
-                    employee.getEmpEmail()
+                    employee.getEmpEmail(),
+                    employee.getEmpAddress(),
+                    employee.getEmpPassword()
             );
 
         } catch (SQLException e) {
@@ -126,7 +132,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
                                 resultSet.getString(1),
                                 resultSet.getString(2),
                                 resultSet.getString(3),
-                                resultSet.getString(4)
+                                resultSet.getString(4),
+                                resultSet.getString(5),
+                                resultSet.getString(6)
                         )
                 );
             }
@@ -137,4 +145,31 @@ public class EmployeeDaoImpl implements EmployeeDao {
         }
     }
 
+    @Override
+    public boolean validateEmployeeSignIn(String userID, String userPassword) {
+
+        String SQL = "SELECT password FROM employee WHERE employee_id =? ";
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL,userID);
+            if(resultSet.next()){
+                String dpEmployeePassword = resultSet.getString("password");
+                return  userPassword.equals(dpEmployeePassword);
+            }else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean updateEmployeePassword(String userID, String userPassword) {
+        String SQL = "UPDATE employee SET password=? WHERE employee_id=? ";
+        try {
+            return CrudUtil.execute(SQL,userPassword,userID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

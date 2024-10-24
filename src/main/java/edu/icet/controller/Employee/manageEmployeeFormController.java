@@ -16,51 +16,51 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class manageEmployeeFormController implements Initializable {
-
+    @FXML
     public ComboBox combo;
     @FXML
+    public TextField txtEmpAddress;
+    @FXML
+    public TextField txtEmpPassword;
+    @FXML
     private Button btnEmpAdd;
-
     @FXML
     private Button btnEmpRemove;
-
     @FXML
     private Button btnEmpSearch;
-
     @FXML
     private Button btnEmpUpdate;
-
     @FXML
     private Button btnEmployee;
-
     @FXML
     private Button btnSupplier;
-
     @FXML
     private TextField txtEmpCompany;
-
     @FXML
     private TextField txtEmpEmail;
-
     @FXML
     private TextField txtEmpId;
-
     @FXML
     private TextField txtEmpName;
 
 
     EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        getGeneratedID();
+    }
 
     @FXML
     void btnEmpAddOnClick(ActionEvent event) {
-//        EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
         String EmpId = txtEmpId.getText();
         String EmpName = txtEmpName.getText();
         String EmpCompany = txtEmpCompany.getText();
         String EmpEmail = txtEmpEmail.getText();
+        String EmpAddress = txtEmpAddress.getText();
+        String EmpPassword = txtEmpPassword.getText();
 
-        EmployeeEntity employee = new EmployeeEntity(EmpId, EmpName, EmpCompany, EmpEmail);
+        EmployeeEntity employee = new EmployeeEntity(EmpId, EmpName, EmpCompany, EmpEmail,EmpAddress,EmpPassword);
 
 //        System.out.println(service);
 
@@ -101,6 +101,7 @@ public class manageEmployeeFormController implements Initializable {
             txtEmpName.setText(employee.getEmpName());
             txtEmpCompany.setText(employee.getEmpCompany());
             txtEmpEmail.setText(employee.getEmpEmail());
+            txtEmpAddress.setText(employee.getEmpAddress());
         }else {
             clearForm();
             getGeneratedID();
@@ -114,7 +115,9 @@ public class manageEmployeeFormController implements Initializable {
                 txtEmpId.getText(),
                 txtEmpName.getText(),
                 txtEmpCompany.getText(),
-                txtEmpEmail.getText()
+                txtEmpEmail.getText(),
+                txtEmpAddress.getText(),
+                txtEmpPassword.getText()
         );
         if (employeeService.updateEmployee(employee)){
             clearForm();
@@ -132,23 +135,8 @@ public class manageEmployeeFormController implements Initializable {
         txtEmpId.clear();
         txtEmpCompany.clear();
         txtEmpName.clear();
-    }
-
-//    private int num = 1;
-//
-//    public void generateEmployeeID(){
-//
-//        String EmployeeID = "EID"+ String.format("%04d", num) ;
-//
-//        txtEmpId.setText(EmployeeID);
-//
-//        num++;
-//    }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        getGeneratedID();
+        txtEmpAddress.clear();
+        txtEmpPassword.clear();
     }
 
     public void getGeneratedID(){

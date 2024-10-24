@@ -19,6 +19,7 @@ public class DaoFactory {
             case PRODUCT:return (T) new ProductDaoImpl();
             case ORDER: return (T) new OrderDaoImpl();
             case ORDERDETAILS: return (T) new OrderDetailsDaoImpl();
+            case OWNER: return (T) new OwnerDaoImpl();
         }
         return null;
     }

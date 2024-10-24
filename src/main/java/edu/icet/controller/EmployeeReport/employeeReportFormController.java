@@ -19,35 +19,24 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class employeeReportFormController implements Initializable {
-
+    @FXML
+    public TableColumn colEmpAddress;
     @FXML
     private Button btnEmpPrint;
-
     @FXML
     private TableColumn<?, ?> colEmpCompany;
-
     @FXML
     private TableColumn<?, ?> colEmpEmail;
-
     @FXML
     private TableColumn<?, ?> colEmpID;
-
     @FXML
     private TableColumn<?, ?> colEmpName;
-
     @FXML
     private Label lblDate;
-
     @FXML
     private TableView<EmployeeEntity> tblEmployee;
 
     EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
-
-
-    @FXML
-    void btnEmpPrintOnClick(ActionEvent event) {
-
-    }
 
     public void loadTable(){
         ObservableList<EmployeeEntity> load = employeeService.getAll();
@@ -63,7 +52,15 @@ public class employeeReportFormController implements Initializable {
         colEmpName.setCellValueFactory(new PropertyValueFactory<>("EmpName"));
         colEmpCompany.setCellValueFactory(new PropertyValueFactory<>("EmpCompany"));
         colEmpEmail.setCellValueFactory(new PropertyValueFactory<>("EmpEmail"));
+        colEmpAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
 
         loadTable();
     }
+
+
+    @FXML
+    void btnEmpPrintOnClick(ActionEvent event) {
+
+    }
+
 }

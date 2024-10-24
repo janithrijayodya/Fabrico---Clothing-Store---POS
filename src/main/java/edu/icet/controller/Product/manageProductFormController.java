@@ -29,41 +29,43 @@ public class manageProductFormController implements Initializable {
 
     @FXML
     public Button btnProductAdd;
+    @FXML
     public TextField txtSupplierID;
     @FXML
     public ComboBox comboSupplierID;
     @FXML
     private Button btnAddImage;
-
     @FXML
     private ImageView imageView;
-
     @FXML
     private Label lblImage;
-
     @FXML
     private TextField txtProductId;
-
     @FXML
     private TextField txtProductName;
-
     @FXML
     private TextField txtProductPrice;
-
     @FXML
     private TextField txtProductQty;
-
     @FXML
     private TextField txtProductSize;
-
     @FXML
     private TextField txtProductType;
-
     @FXML
     private byte[] imageBytes;
 
 
     ProductService productService = ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<String> SupplierIDs = productService.getSuppliers();
+        comboSupplierID.getItems().addAll(SupplierIDs);
+
+        getGeneratedID();
+
+    }
 
     @FXML
     void btnAddImageOnClick(ActionEvent event) {
@@ -110,15 +112,6 @@ public class manageProductFormController implements Initializable {
            getGeneratedID();
            new Alert(Alert.AlertType.INFORMATION,"NOT added !!").show();
        }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<String> SupplierIDs = productService.getSuppliers();
-        comboSupplierID.getItems().addAll(SupplierIDs);
-
-        getGeneratedID();
-
     }
 
     public void getGeneratedID(){

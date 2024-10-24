@@ -55,7 +55,7 @@
       <Line endX="145.0" layoutX="846.0" layoutY="481.0" startX="-100.0" stroke="#9f86c0" />
       <Label fx:id="lblSubTotal" layoutX="905.0" layoutY="413.0" prefHeight="18.0" prefWidth="74.0" text="id" textAlignment="RIGHT" textFill="#212020" />
       <Label layoutX="939.0" layoutY="444.0" prefHeight="18.0" prefWidth="26.0" text="5%" textAlignment="RIGHT" textFill="#212020" />
-      <Label fx:id="lblTotal" layoutX="905.0" layoutY="496.0" prefHeight="18.0" prefWidth="74.0" text="id" textAlignment="RIGHT" textFill="#080808">
+      <Label fx:id="lblTotal" layoutX="929.0" layoutY="496.0" prefHeight="18.0" prefWidth="74.0" text="id" textAlignment="RIGHT" textFill="#080808">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -93,7 +93,7 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Label fx:id="lblTotal1" layoutX="876.0" layoutY="496.0" prefHeight="18.0" prefWidth="26.0" text="Rs: " textAlignment="RIGHT" textFill="#080808">
+      <Label fx:id="lblTotal1" layoutX="904.0" layoutY="496.0" prefHeight="18.0" prefWidth="26.0" text="Rs: " textAlignment="RIGHT" textFill="#080808">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

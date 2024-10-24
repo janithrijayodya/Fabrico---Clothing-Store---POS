@@ -4,11 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="584.0" prefWidth="1022.0" style="-fx-background-color: EEE1F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.Supplier.manageSupplierFormController">
    <children>
+      <Circle fill="#83c9ec" layoutX="384.0" layoutY="506.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#a4c3b2" layoutX="907.0" layoutY="448.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#b56576" layoutX="143.0" layoutY="110.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d9d9d9" height="465.0" layoutX="164.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="717.0" />
       <Label layoutX="430.0" layoutY="110.0" prefHeight="48.0" prefWidth="184.0" text="Manage SUPPLIER" textFill="#691bcf">
          <font>
@@ -39,5 +43,9 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Circle fill="#cdb4db" layoutX="798.0" layoutY="134.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#e1c176" layoutX="237.0" layoutY="110.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#fb6f92" layoutX="101.0" layoutY="376.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#d282a6" layoutX="965.0" layoutY="226.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

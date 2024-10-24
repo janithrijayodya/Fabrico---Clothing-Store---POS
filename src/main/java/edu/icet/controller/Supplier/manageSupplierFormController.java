@@ -16,38 +16,38 @@ import java.util.ResourceBundle;
 
 public class manageSupplierFormController implements Initializable {
 
-    public TableColumn colSupplierID;
-    public TableColumn colSupplierName;
-    public TableColumn colSupplierCompany;
-    public TableColumn colSupplierEmail;
+    @FXML
     public Button btnSupReload;
+    @FXML
     public Button btnSupPrint;
-    public TableView tbl;
     @FXML
     private Button btnSupAdd;
-
     @FXML
     private Button btnSupRemove;
-
     @FXML
     private Button btnSupSearch;
-
     @FXML
     private Button btnSupUpdate;
-
     @FXML
     private TextField txtSupplierCompany;
-
     @FXML
     private TextField txtSupplierEmail;
-
     @FXML
     private TextField txtSupplierId;
-
     @FXML
     private TextField txtSupplierName;
 
     SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setGeneratedID();
+    }
+
+    public void setGeneratedID(){
+        String supplierID = supplierService.generateSupplierID();
+        txtSupplierId.setText(supplierID);
+    }
 
     @FXML
     void btnSupAddOnClick(ActionEvent event) {
@@ -131,24 +131,5 @@ public class manageSupplierFormController implements Initializable {
         txtSupplierName.clear();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        setGeneratedID();
-    }
-
-    public void setGeneratedID(){
-        String supplierID = supplierService.generateSupplierID();
-        txtSupplierId.setText(supplierID);
-    }
-
-
-    //========================LOAD TABLE========================
-
-
-    public void btnSupReloadOnClick(ActionEvent actionEvent) {
-    }
-
-    public void btnSupPrintOnClick(ActionEvent actionEvent) {
-    }
 }
 

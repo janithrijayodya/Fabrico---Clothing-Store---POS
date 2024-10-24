@@ -20,36 +20,24 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class supplierReportFormController implements Initializable {
-
+    @FXML
     public Label lblDate;
     @FXML
     private Button btnSupPrint;
-
     @FXML
     private Button btnSupReload;
-
     @FXML
     private TableColumn<?, ?> colSupplierCompany;
-
     @FXML
     private TableColumn<?, ?> colSupplierEmail;
-
     @FXML
     private TableColumn<?, ?> colSupplierID;
-
     @FXML
     private TableColumn<?, ?> colSupplierName;
-
     @FXML
     private TableView<SupplierEntity> tblSupplier;
 
     SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
-
-    @FXML
-    void btnSupPrintOnClick(ActionEvent event) {
-
-    }
-
 
     public void loadTable(){
         ObservableList<SupplierEntity> load = supplierService.getAll();
@@ -65,5 +53,10 @@ public class supplierReportFormController implements Initializable {
         colSupplierCompany.setCellValueFactory(new PropertyValueFactory<>("SupplierCompany"));
         colSupplierEmail.setCellValueFactory(new PropertyValueFactory<>("SupplierEmail"));
         loadTable();
+    }
+
+    @FXML
+    void btnSupPrintOnClick(ActionEvent event) {
+
     }
 }

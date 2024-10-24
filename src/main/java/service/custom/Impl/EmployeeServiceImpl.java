@@ -24,10 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeEntity searchEmployee(String EmpId) {
-//        EmployeeEntity entity = new ModelMapper().map(EmpId,EmployeeEntity.class);
-
-
-        return  employeeDao.search(EmpId);
+       return  employeeDao.search(EmpId);
 
     }
 
@@ -51,5 +48,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public ObservableList<EmployeeEntity> getAll() {
       return employeeDao.getAll();
+    }
+
+    @Override
+    public boolean EmployeeSignInValidation(String userID, String userPassword) {
+        return  employeeDao.validateEmployeeSignIn(userID,userPassword);
+    }
+
+    @Override
+    public boolean updatePassword(String userID, String userPassword) {
+        return employeeDao.updateEmployeePassword(userID,userPassword);
     }
 }

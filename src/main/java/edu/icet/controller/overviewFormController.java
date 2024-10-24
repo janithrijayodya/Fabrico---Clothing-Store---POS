@@ -14,33 +14,26 @@ public class overviewFormController {
 
     @FXML
     public Label pageTitle;
+    @FXML
     public ComboBox comboBpx;
+    @FXML
     public Button btnSupplierManagement;
     @FXML
     private Button btnCategories;
-
     @FXML
     private Button btnEmployeeReport;
-
     @FXML
     private Button btnInventoryReport;
-
     @FXML
     private Button btnOrders;
-
     @FXML
     private Button btnProductManagement;
-
     @FXML
     private Button btnSalesReport;
-
     @FXML
     private Button btnSupplierReport;
-
     @FXML
     private Button btnUserManagement;
-
-
     @FXML
     private AnchorPane childAnchorpane;
 

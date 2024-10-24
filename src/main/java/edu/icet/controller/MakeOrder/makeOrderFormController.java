@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -31,8 +32,11 @@ public class makeOrderFormController implements Initializable {
 
     @FXML
     public CheckBox checkBoxCash;
+    @FXML
     public CheckBox checkBoxCard;
+    @FXML
     public Label lblSubTotal;
+    @FXML
     public Label lblEmpIdinOrder;
     @FXML
     public Rectangle orderItems;
@@ -40,11 +44,12 @@ public class makeOrderFormController implements Initializable {
     public Label lblItem;
     @FXML
     public Label lblPrice;
+    @FXML
     public TableView<ProductEntity> tblProducts;
     @FXML
     public TilePane loadProducts;
+    @FXML
     public Label lblEmpId;
-
     @FXML
     private Button btnGents;
     @FXML
@@ -53,7 +58,6 @@ public class makeOrderFormController implements Initializable {
     private Button btnLadies;
     @FXML
     private Button btnProceed;
-
     @FXML
     private TableColumn<?, ?> colName;
     @FXML
@@ -64,7 +68,6 @@ public class makeOrderFormController implements Initializable {
     private TableColumn<?, ?> colQty;
     @FXML
     private TableColumn<?, ?> colSize;
-
     @FXML
     private Label item;
     @FXML
@@ -73,87 +76,15 @@ public class makeOrderFormController implements Initializable {
     private Label lblOrderID;
     @FXML
     private Label lblTotal;
-
-    OrderService orderService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDER);
-    OrderDetailsService orderDetailsService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDERDETAILS);
-    ProductService productService = ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
-
     @FXML
     public String userIDInOrder="EID0001";
 
     Double subTotal = 0.0;
 
-    @FXML
-    public void getUserID(String userID) {
-        this.userIDInOrder = userID;
-    }
+    OrderService orderService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDER);
+    OrderDetailsService orderDetailsService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDERDETAILS);
+    ProductService productService = ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
 
-    @FXML
-    void btnProceedOnClick(ActionEvent event) {
-
-        // Ensure services are initialized
-        if (orderService == null || orderDetailsService == null) {
-            new Alert(Alert.AlertType.ERROR, "Services are not initialized!").show();
-            return;
-        }
-
-        OrderEntity order = new OrderEntity(
-                lblOrderID.getText(),
-                lblDate.getText(),
-                userIDInOrder
-        );
-
-         orderService.addOrder(order);
-        // Prepare order details
-        String paymentMethod = checkBoxCash.isSelected() ? "Cash" : "Credit_card";
-
-        for (ProductEntity product : tblProducts.getSelectionModel().getSelectedItems()) {
-
-                OrderDetailsEntity orderDetails = new OrderDetailsEntity(
-                        lblOrderID.getText(),
-                        product.getProductID(),
-                        product.getQuantity(),
-                        Double.parseDouble(lblTotal.getText()),
-                        paymentMethod
-                );
-
-                // Attempt to add order details and order
-                if (orderDetailsService.addOrderDetails(orderDetails) ) {
-                    clearForm();
-                    getGeneratedID();
-                    new Alert(Alert.AlertType.INFORMATION, "Order is completed !!").show();
-                } else {
-                    clearForm();
-                    getGeneratedID();
-                    new Alert(Alert.AlertType.INFORMATION, "Order is NOT completed !!").show();
-                }
-
-        }
-
-    }
-
-    public void getGeneratedID() {
-        String setOrderid = orderService.generateOrderID();
-        lblOrderID.setText(setOrderid);
-        lblDate.setText(String.valueOf(LocalDate.now()));
-    }
-
-    public void clearForm(){
-        lblOrderID.setText("");
-        lblEmpId.setText("");
-        lblDate.setText("");
-        lblItem.setText("");
-        lblPrice.setText("");
-        checkBoxCard.setSelected(false);
-        checkBoxCash.setSelected(false);
-        lblSubTotal.setText("");
-        lblTotal.setText("");
-    }
-
-    public void loadTable() {
-        ObservableList<ProductEntity> load = productService.getAll();
-        tblProducts.setItems(load);
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -183,6 +114,78 @@ public class makeOrderFormController implements Initializable {
             }
         });
     }
+
+    @FXML
+    void btnProceedOnClick(ActionEvent event) {
+
+        // Ensure services are initialized
+        if (orderService == null || orderDetailsService == null) {
+            new Alert(Alert.AlertType.ERROR, "Services are not initialized!").show();
+            return;
+        }
+
+        OrderEntity order = new OrderEntity(
+                lblOrderID.getText(),
+                lblDate.getText(),
+                userIDInOrder
+        );
+
+         orderService.addOrder(order);
+
+        String paymentMethod = checkBoxCash.isSelected() ? "Cash" : "Credit_card";
+//        ArrayList<ProductEntity> products = new ArrayList<>();
+
+        for (ProductEntity product : tblProducts.getSelectionModel().getSelectedItems()) {
+
+                OrderDetailsEntity orderDetails = new OrderDetailsEntity(
+                        lblOrderID.getText(),
+                        product.getProductID(),
+                        product.getQuantity(),
+                        Double.parseDouble(lblTotal.getText()),
+                        paymentMethod
+                );
+
+                if (orderDetailsService.addOrderDetails(orderDetails) ) {
+                    clearForm();
+                    getGeneratedID();
+                    new Alert(Alert.AlertType.INFORMATION, "Order is completed !!").show();
+                } else {
+                    clearForm();
+                    getGeneratedID();
+                    new Alert(Alert.AlertType.INFORMATION, "Order is NOT completed !!").show();
+                }
+        }
+    }
+
+    @FXML
+    public void getUserID(String userID) {
+        this.userIDInOrder = userID;
+    }
+
+
+    public void getGeneratedID() {
+        String setOrderid = orderService.generateOrderID();
+        lblOrderID.setText(setOrderid);
+        lblDate.setText(String.valueOf(LocalDate.now()));
+    }
+
+    public void clearForm(){
+        lblOrderID.setText("");
+        lblEmpId.setText("");
+        lblDate.setText("");
+        lblItem.setText("");
+        lblPrice.setText("");
+        checkBoxCard.setSelected(false);
+        checkBoxCash.setSelected(false);
+        lblSubTotal.setText("");
+        lblTotal.setText("");
+    }
+
+    public void loadTable() {
+        ObservableList<ProductEntity> load = productService.getAll();
+        tblProducts.setItems(load);
+    }
+
 
     public void btnGentsOnClick(ActionEvent actionEvent) {
     }

@@ -11,10 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="585.0" prefWidth="1021.0" style="-fx-background-color: EEE1F6;" stylesheets="@../css/tableStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.EmployeeReport.employeeReportFormController">
    <children>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#dbcdee" height="473.0" layoutX="140.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="741.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#dbcdee" height="473.0" layoutX="90.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="845.0" />
       <Label layoutX="185.0" layoutY="66.0" prefHeight="26.0" prefWidth="122.0" text="Employee Report">
          <font>
             <Font name="Arial Bold" size="13.0" />
@@ -26,12 +25,13 @@
             <Image url="@../image/logo.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblEmployee" layoutX="182.0" layoutY="146.0" prefHeight="308.0" prefWidth="659.0">
+      <TableView fx:id="tblEmployee" layoutX="139.0" layoutY="145.0" prefHeight="308.0" prefWidth="741.0">
          <columns>
-            <TableColumn fx:id="colEmpID" prefWidth="135.20005798339844" text="Employee ID" />
-            <TableColumn fx:id="colEmpName" prefWidth="172.7999267578125" text="Employee Name" />
-            <TableColumn fx:id="colEmpCompany" prefWidth="172.7999267578125" text="Company" />
-            <TableColumn fx:id="colEmpEmail" prefWidth="176.79997558593755" text="Email" />
+            <TableColumn fx:id="colEmpID" prefWidth="116.800048828125" text="Employee ID" />
+            <TableColumn fx:id="colEmpName" prefWidth="132.79998779296875" text="Employee Name" />
+            <TableColumn fx:id="colEmpCompany" prefWidth="159.99993896484375" text="Company" />
+            <TableColumn fx:id="colEmpEmail" prefWidth="195.20001220703125" text="Email" />
+            <TableColumn fx:id="colEmpAddress" prefWidth="132.800048828125" text="Address" />
          </columns>
       </TableView>
       <Button fx:id="btnEmpPrint" layoutX="740.0" layoutY="485.0" mnemonicParsing="false" onAction="#btnEmpPrintOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" styleClass="tableStyle.css" text="PRINT" textFill="WHITE">

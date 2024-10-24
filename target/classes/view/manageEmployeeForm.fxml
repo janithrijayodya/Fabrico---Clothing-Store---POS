@@ -4,11 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="585.0" prefWidth="1022.0" style="-fx-background-color: EEE1F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.Employee.manageEmployeeFormController">
    <children>
+      <Circle fill="#a4c3b2" layoutX="897.0" layoutY="458.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#83c9ec" layoutX="394.0" layoutY="516.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#b56576" layoutX="153.0" layoutY="120.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d9d9d9" height="465.0" layoutX="153.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="717.0" />
       <Label layoutX="413.0" layoutY="100.0" prefHeight="48.0" prefWidth="195.0" text="Manage Employee" textFill="#691bcf">
          <font>
@@ -17,8 +21,8 @@
       </Label>
       <TextField fx:id="txtEmpId" layoutX="237.0" layoutY="203.0" prefHeight="26.0" prefWidth="195.0" promptText="Emp ID" style="-fx-background-radius: 5;" />
       <TextField fx:id="txtEmpName" layoutX="560.0" layoutY="203.0" prefHeight="26.0" prefWidth="195.0" promptText="Emp Name" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtEmpCompany" layoutX="237.0" layoutY="298.0" prefHeight="26.0" prefWidth="195.0" promptText="Company" style="-fx-background-radius: 5;" />
-      <TextField fx:id="txtEmpEmail" layoutX="560.0" layoutY="298.0" prefHeight="26.0" prefWidth="195.0" promptText="Email" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtEmpCompany" layoutX="237.0" layoutY="307.0" prefHeight="26.0" prefWidth="195.0" promptText="Company" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtEmpEmail" layoutX="560.0" layoutY="256.0" prefHeight="26.0" prefWidth="195.0" promptText="Email" style="-fx-background-radius: 5;" />
       <Button fx:id="btnEmpAdd" layoutX="237.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnEmpAddOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -39,5 +43,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Circle fill="#cdb4db" layoutX="808.0" layoutY="144.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#e1c176" layoutX="247.0" layoutY="120.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#fb6f92" layoutX="111.0" layoutY="386.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#d282a6" layoutX="975.0" layoutY="236.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <TextField fx:id="txtEmpAddress" layoutX="238.0" layoutY="256.0" prefHeight="26.0" prefWidth="195.0" promptText="Address" style="-fx-background-radius: 5;" />
+      <TextField fx:id="txtEmpPassword" layoutX="560.0" layoutY="307.0" prefHeight="26.0" prefWidth="195.0" promptText="Password" style="-fx-background-radius: 5;" />
    </children>
 </AnchorPane>

@@ -18,4 +18,6 @@ public class EmployeeEntity {
     private String EmpCompany;
 
     private String EmpEmail;
+    private String EmpAddress;
+    private  String EmpPassword;
 }
