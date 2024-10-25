@@ -1,0 +1,6 @@
+.card {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Adjust angle and colors as needed */
+    color: white; /* Optional: text color */
+    padding: 20px; /* Optional: padding for the card */
+    border-radius: 8px; /* Optional: rounded corners */
+}
