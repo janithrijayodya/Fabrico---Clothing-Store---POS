@@ -29,9 +29,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             pstm.setObject(4,employee.getEmpEmail());
             pstm.setObject(5,employee.getEmpAddress());
             pstm.setObject(6,employee.getEmpPassword());
-
             return  pstm.executeUpdate()>0;
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +53,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
                         resultSet.getString(6)
                 );
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -74,7 +71,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
                     employee.getEmpAddress(),
                     employee.getEmpPassword()
             );
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -100,16 +96,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
             if (resultSet.next()) {
                 String lastID = resultSet.getString("employee_id");
-
                 // Extract the numeric part from the employee ID
                 int idNum = Integer.parseInt(lastID.replace("EID", ""));
-                idNum++; // Increment the ID number
-
-                // Format the new ID with leading zeros (e.g., "EID0006")
+                idNum++;
                 return String.format("EID%04d", idNum);
-
             } else {
-                // If no employees exist, start with "EID0001"
                 return "EID0001";
             }
         } catch (SQLException e) {
@@ -138,7 +129,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
                         )
                 );
             }
-
             return employeeObservableList;
         } catch (SQLException e) {
             throw new RuntimeException(e);

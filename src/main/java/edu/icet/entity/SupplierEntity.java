@@ -12,10 +12,7 @@ import lombok.ToString;
 
 public class SupplierEntity {
     private String SupplierID;
-
     private String SupplierName;
-
     private String SupplierCompany;
-
     private String SupplierEmail;
 }

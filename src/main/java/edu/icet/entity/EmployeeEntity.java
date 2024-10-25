@@ -10,13 +10,9 @@ import lombok.*;
 @Getter
 
 public class EmployeeEntity {
-
     private String EmpId;
-
     private String EmpName;
-
     private String EmpCompany;
-
     private String EmpEmail;
     private String EmpAddress;
     private  String EmpPassword;

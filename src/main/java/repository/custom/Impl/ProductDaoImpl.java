@@ -15,9 +15,6 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public boolean add(ProductEntity product) {
 
-//        InputStream inputStream = new ByteArrayInputStream(product.getImage()); // Convert byte[] to InputStream
-
-
         String SQL = "INSERT INTO product VALUES(?,?,?,?,?,?,?)";
 
         try {

@@ -15,9 +15,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public boolean addEmployee(EmployeeEntity employee) {
         EmployeeEntity entity = new ModelMapper().map(employee, EmployeeEntity.class);
-
         employeeDao.add(entity);
-
         System.out.println(employee);
         return true;
     }
@@ -25,7 +23,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeEntity searchEmployee(String EmpId) {
        return  employeeDao.search(EmpId);
-
     }
 
     @Override
@@ -37,7 +34,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     public boolean removeEmployee(String EmpId) {
          employeeDao.remove(EmpId);
          return true;
-
     }
 
     @Override

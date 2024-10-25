@@ -1,7 +1,6 @@
 package service.custom;
 
 import edu.icet.entity.ProductEntity;
-import edu.icet.entity.SupplierEntity;
 import javafx.collections.ObservableList;
 import service.SuperService;
 

@@ -33,21 +33,6 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public OrderEntity search(String id) {
-        return null;
-    }
-
-    @Override
-    public boolean update(OrderEntity order) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(String id) {
-        return false;
-    }
-
-    @Override
     public String generateID() {
         String SQL = "SELECT order_id  FROM orders ORDER BY order_id  DESC LIMIT 1";
 
@@ -95,5 +80,20 @@ public class OrderDaoImpl implements OrderDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public OrderEntity search(String id) {
+        return null;
+    }
+
+    @Override
+    public boolean update(OrderEntity order) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(String id) {
+        return false;
     }
 }

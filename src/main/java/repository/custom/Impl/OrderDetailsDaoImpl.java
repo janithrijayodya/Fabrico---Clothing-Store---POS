@@ -2,7 +2,6 @@ package repository.custom.Impl;
 
 import edu.icet.db.DBConnection;
 import edu.icet.entity.OrderDetailsEntity;
-import edu.icet.entity.OrderEntity;
 import edu.icet.util.CrudUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

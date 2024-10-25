@@ -13,10 +13,7 @@ public class SupplierDaoImpl implements SupplierDao {
 
     @Override
     public boolean add(SupplierEntity supplier) {
-
-
         String SQL = "INSERT INTO supplier VALUES(?,?,?,?)";
-
         try {
             return  CrudUtil.execute(SQL,
                     supplier.getSupplierID(),
@@ -31,9 +28,7 @@ public class SupplierDaoImpl implements SupplierDao {
 
     @Override
     public SupplierEntity search(String id) {
-
         String SQL ="SELECT * FROM supplier WHERE supplier_id=?";
-
         try {
             ResultSet resultSet = CrudUtil.execute(SQL,id);
 
@@ -93,10 +88,7 @@ public class SupplierDaoImpl implements SupplierDao {
                 // Extract the numeric part from the employee ID
                 int idNum = Integer.parseInt(lastID.replace("SID", ""));
                 idNum++;
-
-                // Format the new ID with leading zeros (e.g., "EID0006")
                 return String.format("SID%04d", idNum);
-
             } else {
                 return "SID0001";
             }
@@ -110,7 +102,6 @@ public class SupplierDaoImpl implements SupplierDao {
         ObservableList<SupplierEntity> supplierObservableList = FXCollections.observableArrayList();
 
         String SQL = "SELECT * FROM supplier";
-
         try {
             ResultSet resultSet = CrudUtil.execute(SQL);
 
@@ -124,7 +115,6 @@ public class SupplierDaoImpl implements SupplierDao {
                         )
                 );
             }
-
             return supplierObservableList;
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -13,18 +13,11 @@ import lombok.ToString;
 public class ProductEntity {
 
     private String productID;
-
     private String productName;
-
     private String size;
-
     private Double price;
-
     private Integer quantity;
-
     private String type;
-
     private  String supID;
-
 //    private byte[] image;
 }
