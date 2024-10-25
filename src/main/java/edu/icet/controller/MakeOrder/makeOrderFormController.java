@@ -191,12 +191,53 @@ public class makeOrderFormController implements Initializable {
         ObservableList<ProductEntity> load = productService.getAll();
         tblProducts.setItems(load);
     }
+    public void loadGentsTable() {
+        ObservableList<ProductEntity> load = productService.getGentsAll();
+        tblProducts.setItems(load);
+    }
+    public void loadLadiesTable() {
+        ObservableList<ProductEntity> load = productService.getLadiesAll();
+        tblProducts.setItems(load);
+    }
+    public void loadKidsTable() {
+        ObservableList<ProductEntity> load = productService.getKidsAll();
+        tblProducts.setItems(load);
+    }
 
-    public void btnGentsOnClick(ActionEvent actionEvent) {}
+    public void btnGentsOnClick(ActionEvent actionEvent) {
+        colProductId.setCellValueFactory(new PropertyValueFactory<>("productID"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        loadGentsTable();
+    }
 
-    public void btnLadiesOnClick(ActionEvent actionEvent) {}
+    public void btnLadiesOnClick(ActionEvent actionEvent) {
+        colProductId.setCellValueFactory(new PropertyValueFactory<>("productID"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        loadLadiesTable();
+    }
 
-    public void btnKidsOnClick(ActionEvent actionEvent) {}
+    public void btnKidsOnClick(ActionEvent actionEvent) {
+        colProductId.setCellValueFactory(new PropertyValueFactory<>("productID"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        loadKidsTable();
+    }
 
+    public void btnAllOnClick(ActionEvent actionEvent) {
+        colProductId.setCellValueFactory(new PropertyValueFactory<>("productID"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        loadTable();
+    }
 }
 

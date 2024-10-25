@@ -35,4 +35,19 @@ public class ProductServiceImpl implements ProductService {
     public ObservableList<ProductEntity> getAll() {
         return  productDao.getAll();
     }
+
+    @Override
+    public ObservableList<ProductEntity> getGentsAll() {
+        return productDao.getGentsAll();
+    }
+
+    @Override
+    public ObservableList<ProductEntity> getLadiesAll() {
+        return productDao.getLadiesAll();
+    }
+
+    @Override
+    public ObservableList<ProductEntity> getKidsAll() {
+        return productDao.getKidsAll();
+    }
 }

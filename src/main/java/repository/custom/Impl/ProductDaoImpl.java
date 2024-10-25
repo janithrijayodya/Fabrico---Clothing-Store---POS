@@ -108,6 +108,93 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
+    @Override
+    public ObservableList<ProductEntity> getGentsAll() {
+        ObservableList<ProductEntity> productEntityObservableList = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM product WHERE type= 'Gents' ";
+
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL);
+
+            while (resultSet.next()){
+                productEntityObservableList.add(
+                        new ProductEntity(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3),
+                                resultSet.getDouble(4),
+                                resultSet.getInt(5),
+                                resultSet.getString(6),
+                                resultSet.getString(7)
+                        )
+                );
+            }
+
+            return productEntityObservableList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public ObservableList<ProductEntity> getLadiesAll() {
+        ObservableList<ProductEntity> productEntityObservableList = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM product WHERE type= 'Ladies' ";
+
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL);
+
+            while (resultSet.next()){
+                productEntityObservableList.add(
+                        new ProductEntity(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3),
+                                resultSet.getDouble(4),
+                                resultSet.getInt(5),
+                                resultSet.getString(6),
+                                resultSet.getString(7)
+                        )
+                );
+            }
+
+            return productEntityObservableList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public ObservableList<ProductEntity> getKidsAll() {
+        ObservableList<ProductEntity> productEntityObservableList = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM product WHERE type= 'Kids' ";
+
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL);
+
+            while (resultSet.next()){
+                productEntityObservableList.add(
+                        new ProductEntity(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3),
+                                resultSet.getDouble(4),
+                                resultSet.getInt(5),
+                                resultSet.getString(6),
+                                resultSet.getString(7)
+                        )
+                );
+            }
+
+            return productEntityObservableList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @Override
     public ProductEntity search(String id) {

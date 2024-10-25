@@ -1,4 +1,4 @@
-package edu.icet.controller;
+package edu.icet.controller.MakeOrder;
 
 import edu.icet.entity.OrderDetailsEntity;
 import edu.icet.entity.OrderEntity;

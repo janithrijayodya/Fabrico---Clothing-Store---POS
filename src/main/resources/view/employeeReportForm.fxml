@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="585.0" prefWidth="1021.0" style="-fx-background-color: EEE1F6;" stylesheets="@../css/tableStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.EmployeeReport.employeeReportFormController">
+<AnchorPane prefHeight="585.0" prefWidth="1021.0" style="-fx-background-color: EEE1F6;" stylesheets="@../css/tableStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.Employee.employeeReportFormController">
    <children>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#dbcdee" height="473.0" layoutX="90.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="845.0" />
       <Label layoutX="185.0" layoutY="66.0" prefHeight="26.0" prefWidth="122.0" text="Employee Report">

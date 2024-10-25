@@ -11,4 +11,7 @@ public interface ProductService extends SuperService {
     String generateProductID();
     List<String> getSuppliers();
     ObservableList<ProductEntity> getAll();
+    ObservableList<ProductEntity> getGentsAll();
+    ObservableList<ProductEntity> getLadiesAll();
+    ObservableList<ProductEntity> getKidsAll();
 }

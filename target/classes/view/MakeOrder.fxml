@@ -13,17 +13,17 @@
 
 <AnchorPane prefHeight="587.0" prefWidth="1022.0" style="-fx-background-color: EEE1F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.MakeOrder.makeOrderFormController">
    <children>
-      <Button fx:id="btnGents" layoutX="46.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnGentsOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Gents" textFill="WHITE">
+      <Button fx:id="btnGents" layoutX="164.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnGentsOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Gents" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnLadies" layoutX="141.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnLadiesOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Ladies" textFill="WHITE">
+      <Button fx:id="btnLadies" layoutX="259.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnLadiesOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Ladies" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnKids" layoutX="236.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnKidsOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Kids" textFill="WHITE">
+      <Button fx:id="btnKids" layoutX="354.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnKidsOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Kids" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -94,6 +94,11 @@
         </content>
       </ScrollPane>
       <Button layoutX="770.0" layoutY="542.0" mnemonicParsing="false" onAction="#btnClearOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnAllOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="All" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
