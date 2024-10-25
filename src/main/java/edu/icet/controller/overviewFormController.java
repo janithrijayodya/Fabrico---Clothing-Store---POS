@@ -19,28 +19,11 @@ public class overviewFormController {
     @FXML
     public Button btnSupplierManagement;
     @FXML
-    private Button btnCategories;
-    @FXML
-    private Button btnEmployeeReport;
-    @FXML
-    private Button btnInventoryReport;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnProductManagement;
-    @FXML
-    private Button btnSalesReport;
-    @FXML
-    private Button btnSupplierReport;
-    @FXML
-    private Button btnUserManagement;
-    @FXML
     private AnchorPane childAnchorpane;
 
     @FXML
     void categoriesOnClick(ActionEvent event) throws IOException {
-        pageTitle.setText("Categories");
-
+        pageTitle.setText("Place Orders");
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/MakeOrder.fxml"));
         childAnchorpane.getChildren().setAll(pane);
     }
@@ -48,7 +31,6 @@ public class overviewFormController {
     @FXML
     void employeeReportOnClick(ActionEvent event) throws IOException {
         pageTitle.setText("Employee Report");
-
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/employeeReportForm.fxml"));
         childAnchorpane.getChildren().setAll(pane);
     }
@@ -59,14 +41,15 @@ public class overviewFormController {
     }
 
     @FXML
-    void ordersOnClick(ActionEvent event) {
-
+    void ordersOnClick(ActionEvent event) throws IOException {
+        pageTitle.setText("Previous Orders");
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/previousOrders.fxml"));
+        childAnchorpane.getChildren().setAll(pane);
     }
 
     @FXML
     void productManagementOnClick(ActionEvent event) throws IOException {
         pageTitle.setText("Product Management");
-
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageProduct.fxml"));
         childAnchorpane.getChildren().setAll(pane);
     }
@@ -79,7 +62,6 @@ public class overviewFormController {
     @FXML
     void supplierReportOnClick(ActionEvent event) throws IOException {
         pageTitle.setText("Supplier Report");
-
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/supplierReportForm.fxml"));
         childAnchorpane.getChildren().setAll(pane);
     }
@@ -87,18 +69,13 @@ public class overviewFormController {
     @FXML
     void userManagementOnClick(ActionEvent event) throws IOException {
         pageTitle.setText("User Management");
-
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageEmployeeForm.fxml"));
-
         childAnchorpane.getChildren().setAll(pane);
-
-
     }
 
 
     public void supplierManagementOnClick(ActionEvent actionEvent) throws IOException {
         pageTitle.setText("User Management");
-
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/manageSupplierForm.fxml"));
         childAnchorpane.getChildren().setAll(pane);
     }

@@ -6,6 +6,8 @@ import repository.DaoFactory;
 import repository.custom.OrderDetailsDao;
 import service.custom.OrderDetailsService;
 
+import java.util.List;
+
 public class OrderDetailsServiceImpl implements OrderDetailsService {
 
     OrderDetailsDao orderDetailsDao   =  DaoFactory.getInstance().getDaoType(DaoType.ORDERDETAILS);
@@ -13,5 +15,10 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     @Override
     public boolean addOrderDetails(OrderDetailsEntity orderDetails) {
         return orderDetailsDao.add(orderDetails);
+    }
+
+    @Override
+    public List<OrderDetailsEntity> getOrderDetailsByOrderId(String orderId) {
+        return orderDetailsDao.getAllOrderDetails(orderId);
     }
 }

@@ -2,12 +2,17 @@ package repository.custom.Impl;
 
 import edu.icet.db.DBConnection;
 import edu.icet.entity.OrderDetailsEntity;
+import edu.icet.entity.OrderEntity;
+import edu.icet.util.CrudUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import repository.custom.OrderDetailsDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class OrderDetailsDaoImpl implements OrderDetailsDao {
     @Override
@@ -54,5 +59,32 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
     @Override
     public ObservableList<OrderDetailsEntity> getAll() {
         return null;
+    }
+
+    @Override
+    public List<OrderDetailsEntity> getAllOrderDetails(String orderId) {
+        ObservableList<OrderDetailsEntity> orderDetailsEntityObservableList = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM order_details WHERE order_id=?";
+
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL,orderId);
+
+            while (resultSet.next()){
+                orderDetailsEntityObservableList.add(
+                        new OrderDetailsEntity(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getInt(3),
+                                resultSet.getDouble(4),
+                                resultSet.getString(5)
+                        )
+                );
+            }
+
+            return orderDetailsEntityObservableList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

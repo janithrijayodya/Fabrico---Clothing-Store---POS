@@ -1,13 +1,10 @@
 package edu.icet.controller.Product;
 
-import edu.icet.controller.MakeOrder.makeOrderFormController;
 import edu.icet.entity.ProductEntity;
 import edu.icet.util.ServiceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,13 +12,10 @@ import javafx.stage.FileChooser;
 import service.ServiceFactory;
 import service.custom.ProductService;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -29,8 +23,6 @@ public class manageProductFormController implements Initializable {
 
     @FXML
     public Button btnProductAdd;
-    @FXML
-    public TextField txtSupplierID;
     @FXML
     public ComboBox comboSupplierID;
     @FXML
@@ -64,7 +56,6 @@ public class manageProductFormController implements Initializable {
         comboSupplierID.getItems().addAll(SupplierIDs);
 
         getGeneratedID();
-
     }
 
     @FXML
@@ -80,7 +71,6 @@ public class manageProductFormController implements Initializable {
 
             try {
                imageBytes = Files.readAllBytes(selectedFile.toPath());
-                System.out.println(imageBytes);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

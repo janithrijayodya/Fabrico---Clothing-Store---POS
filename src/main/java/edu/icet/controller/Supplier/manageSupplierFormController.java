@@ -57,7 +57,6 @@ public class manageSupplierFormController implements Initializable {
                txtSupplierCompany.getText(),
                txtSupplierEmail.getText()
         );
-
         if(supplierService.addSupplier(supplier)){
             clearSupplierForm();
             setGeneratedID();
@@ -88,9 +87,7 @@ public class manageSupplierFormController implements Initializable {
     void btnSupSearchOnClick(ActionEvent event) {
 
         String supId = txtSupplierId.getText();
-
         SupplierEntity supplier =supplierService.searchSupplier(supId);
-
         if(supplier != null){
             txtSupplierId.setText(supplier.getSupplierID());
             txtSupplierName.setText(supplier.getSupplierName());
@@ -101,7 +98,6 @@ public class manageSupplierFormController implements Initializable {
             setGeneratedID();
             new Alert(Alert.AlertType.INFORMATION,"Supplier NOT found !!").show();
         }
-
     }
 
     @FXML
@@ -112,7 +108,6 @@ public class manageSupplierFormController implements Initializable {
                 txtSupplierCompany.getText(),
                 txtSupplierEmail.getText()
         );
-
         if(supplierService.updateSupplier(supplier)){
             clearSupplierForm();
             setGeneratedID();
@@ -121,7 +116,6 @@ public class manageSupplierFormController implements Initializable {
             setGeneratedID();
             new Alert(Alert.AlertType.INFORMATION,"NOT Updated !!");
         }
-
     }
 
     public void clearSupplierForm(){

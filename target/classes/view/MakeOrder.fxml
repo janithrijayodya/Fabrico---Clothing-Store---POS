@@ -53,19 +53,19 @@
       <Label layoutX="755.0" layoutY="444.0" prefHeight="18.0" prefWidth="74.0" text="Discount" textFill="#797474" />
       <Label layoutX="755.0" layoutY="496.0" prefHeight="18.0" prefWidth="74.0" text="Total Amount" textFill="#797474" />
       <Line endX="145.0" layoutX="846.0" layoutY="481.0" startX="-100.0" stroke="#9f86c0" />
-      <Label fx:id="lblSubTotal" layoutX="905.0" layoutY="413.0" prefHeight="18.0" prefWidth="74.0" text="id" textAlignment="RIGHT" textFill="#212020" />
+      <Label fx:id="lblSubTotal" layoutX="900.0" layoutY="413.0" prefHeight="18.0" prefWidth="86.0" text="id" textAlignment="RIGHT" textFill="#212020" />
       <Label layoutX="939.0" layoutY="444.0" prefHeight="18.0" prefWidth="26.0" text="5%" textAlignment="RIGHT" textFill="#212020" />
-      <Label fx:id="lblTotal" layoutX="929.0" layoutY="496.0" prefHeight="18.0" prefWidth="74.0" text="id" textAlignment="RIGHT" textFill="#080808">
+      <Label fx:id="lblTotal" layoutX="899.0" layoutY="496.0" prefHeight="18.0" prefWidth="86.0" text="id" textAlignment="RIGHT" textFill="#080808">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btnProceed" layoutX="829.0" layoutY="546.0" mnemonicParsing="false" onAction="#btnProceedOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Proceed" textFill="WHITE">
+      <Button fx:id="btnProceed" layoutX="885.0" layoutY="542.0" mnemonicParsing="false" onAction="#btnProceedOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Proceed" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TableView fx:id="tblProducts" layoutX="68.0" layoutY="101.0" prefHeight="454.0" prefWidth="582.0">
+      <TableView fx:id="tblProducts" layoutX="68.0" layoutY="101.0" prefHeight="454.0" prefWidth="582.0" stylesheets="@../css/tableStyle.css">
         <columns>
           <TableColumn fx:id="colProductId" prefWidth="111.99999618530273" text="Product ID" />
           <TableColumn fx:id="colName" prefWidth="145.6000213623047" text="Name" />
@@ -93,10 +93,10 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Label fx:id="lblTotal1" layoutX="904.0" layoutY="496.0" prefHeight="18.0" prefWidth="26.0" text="Rs: " textAlignment="RIGHT" textFill="#080808">
+      <Button layoutX="770.0" layoutY="542.0" mnemonicParsing="false" onAction="#btnClearOnClick" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: CDB4DB;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
-      </Label>
+      </Button>
    </children>
 </AnchorPane>

@@ -3,6 +3,7 @@ package repository.custom.Impl;
 import edu.icet.db.DBConnection;
 import edu.icet.entity.OrderEntity;
 import edu.icet.util.CrudUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import repository.custom.OrderDao;
 
@@ -73,6 +74,26 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public ObservableList<OrderEntity> getAll() {
-        return null;
+        ObservableList<OrderEntity> orderEntityObservableList = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM orders";
+
+        try {
+            ResultSet resultSet = CrudUtil.execute(SQL);
+
+            while (resultSet.next()){
+                orderEntityObservableList.add(
+                            new OrderEntity(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getString(3)
+                        )
+                );
+            }
+
+            return orderEntityObservableList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

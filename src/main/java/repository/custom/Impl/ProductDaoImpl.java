@@ -1,13 +1,11 @@
 package repository.custom.Impl;
 
 import edu.icet.entity.ProductEntity;
-import edu.icet.entity.SupplierEntity;
 import edu.icet.util.CrudUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import repository.custom.ProductDao;
 
-import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

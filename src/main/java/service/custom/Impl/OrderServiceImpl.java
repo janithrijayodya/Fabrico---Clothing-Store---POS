@@ -4,7 +4,6 @@ import edu.icet.entity.OrderEntity;
 import edu.icet.util.DaoType;
 import repository.DaoFactory;
 import repository.custom.OrderDao;
-import repository.custom.ProductDao;
 import service.custom.OrderService;
 
 import java.util.List;
@@ -21,6 +20,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public String generateOrderID() {
         return orderDao.generateID();
+    }
+
+    @Override
+    public List<OrderEntity> getAll() {
+        return orderDao.getAll();
     }
 
 }

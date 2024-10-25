@@ -1,6 +1,5 @@
 package edu.icet.controller;
 
-import edu.icet.entity.OwnerEntity;
 import edu.icet.util.ServiceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,12 +9,8 @@ import javafx.scene.control.TextField;
 import service.ServiceFactory;
 import service.custom.EmployeeService;
 import service.custom.OwnerService;
-import service.custom.SupplierService;
 
 public class forgotPasswordController {
-
-    @FXML
-    private Button passwordUpdateOnClick;
 
     @FXML
     private TextField txtNewPassword;

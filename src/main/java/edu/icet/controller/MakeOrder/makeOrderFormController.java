@@ -8,9 +8,7 @@ import edu.icet.util.ServiceType;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.TilePane;
@@ -20,7 +18,6 @@ import service.custom.OrderDetailsService;
 import service.custom.OrderService;
 import service.custom.ProductService;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -59,15 +56,15 @@ public class makeOrderFormController implements Initializable {
     @FXML
     private Button btnProceed;
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<ProductEntity, String> colName;
     @FXML
-    private TableColumn<?, ?> colPrice;
+    private TableColumn<ProductEntity, Double> colPrice;
     @FXML
-    private TableColumn<?, ?> colProductId;
+    private TableColumn<ProductEntity, String> colProductId;
     @FXML
-    private TableColumn<?, ?> colQty;
+    private TableColumn<ProductEntity, Integer> colQty;
     @FXML
-    private TableColumn<?, ?> colSize;
+    private TableColumn<ProductEntity, String> colSize;
     @FXML
     private Label item;
     @FXML
@@ -77,20 +74,23 @@ public class makeOrderFormController implements Initializable {
     @FXML
     private Label lblTotal;
     @FXML
-    public String userIDInOrder="EID0001";
+    public String userIDInOrder = "EID0001";
 
-    Double subTotal = 0.0;
+    private Double subTotal = 0.0;
+
+    // =================== LIST TO STORE SELECTED RECORDS===============
+    private List<ProductEntity> selectedProducts = new ArrayList<>();
 
     OrderService orderService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDER);
     OrderDetailsService orderDetailsService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDERDETAILS);
     ProductService productService = ServiceFactory.getInstance().getServiceType(ServiceType.PRODUCT);
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getGeneratedID();
         lblDate.setText(String.valueOf(LocalDate.now()));
 
+        //===========LOAD ALL PRODUCTS TO THE TABLE====================
         colProductId.setCellValueFactory(new PropertyValueFactory<>("productID"));
         colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
         colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
@@ -98,78 +98,83 @@ public class makeOrderFormController implements Initializable {
         colQty.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         loadTable();
 
-//        lblEmpIdinOrder.setText(userIDInOrder);
-
+        // =============EVENT HANDLING => WHEN CLICK ON A RECORD, THE RECORD ADD TO ORDER DETAILS BAR===========
         tblProducts.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                String currentText = lblItem.getText();
-                String currentPrice = lblPrice.getText();
-
-                lblItem.setText(currentText + "\n" + newSelection.getProductID() + "\t" + newSelection.getProductName());
-                lblPrice.setText(currentPrice + "\n" + "Rs: " + newSelection.getPrice());
-
-                subTotal += newSelection.getPrice();
-                lblSubTotal.setText("Rs: " + subTotal);
-                lblTotal.setText(String.valueOf(subTotal - (subTotal * 0.05)));
+                addProductToOrderDetails(newSelection);
             }
         });
     }
 
+    // ===========PASS SELECTED RECORD TO THIS METHOD==========
+    private void addProductToOrderDetails(ProductEntity product) {
+        // ========ADD SELECTED RECORDS TO THE ARRAY LIST=========
+        selectedProducts.add(product);
+
+        // ========= SHOW SELECTED RECORDS IN ORDER DETAILS BAR=======
+        String currentText = lblItem.getText();
+        String currentPrice = lblPrice.getText();
+        lblItem.setText(currentText + "\n" + product.getProductID() + "\t" + product.getProductName());
+        lblPrice.setText(currentPrice + "\n" + "Rs: " + product.getPrice());
+
+        // ========= UPDATE SUB TOTAL AND TOTAL AMOUNT========
+        subTotal += product.getPrice();
+        lblSubTotal.setText("Rs: " + subTotal);
+        lblTotal.setText("Rs: " + (subTotal - (subTotal * 0.05))); // Assuming 5% discount
+    }
+
     @FXML
     void btnProceedOnClick(ActionEvent event) {
-
-        // Ensure services are initialized
+        // ENSURE SERVICES ARE INITIALIZED==========
         if (orderService == null || orderDetailsService == null) {
             new Alert(Alert.AlertType.ERROR, "Services are not initialized!").show();
             return;
         }
 
+        // ======== CREATE NEW ORDER========
         OrderEntity order = new OrderEntity(
                 lblOrderID.getText(),
                 lblDate.getText(),
                 userIDInOrder
         );
+        orderService.addOrder(order);
 
-         orderService.addOrder(order);
 
-        String paymentMethod = checkBoxCash.isSelected() ? "Cash" : "Credit_card";
-//        ArrayList<ProductEntity> products = new ArrayList<>();
+        String paymentMethod = checkBoxCash.isSelected() ? "cash" : "credit_card";
+        Integer qty = 1;
+        // ======CREATE NEW ORDER DETAILS===========
+        for (ProductEntity product : selectedProducts) {
+            OrderDetailsEntity orderDetails = new OrderDetailsEntity(
+                    lblOrderID.getText(),
+                    product.getProductID(),
+                    qty,
+                    product.getPrice()*qty ,
+                    paymentMethod
+            );
 
-        for (ProductEntity product : tblProducts.getSelectionModel().getSelectedItems()) {
-
-                OrderDetailsEntity orderDetails = new OrderDetailsEntity(
-                        lblOrderID.getText(),
-                        product.getProductID(),
-                        product.getQuantity(),
-                        Double.parseDouble(lblTotal.getText()),
-                        paymentMethod
-                );
-
-                if (orderDetailsService.addOrderDetails(orderDetails) ) {
-                    clearForm();
-                    getGeneratedID();
-                    new Alert(Alert.AlertType.INFORMATION, "Order is completed !!").show();
-                } else {
-                    clearForm();
-                    getGeneratedID();
-                    new Alert(Alert.AlertType.INFORMATION, "Order is NOT completed !!").show();
-                }
+            if (!orderDetailsService.addOrderDetails(orderDetails)) {
+                new Alert(Alert.AlertType.ERROR, "Order details could not be saved!").show();
+                return;
+            }
         }
+
+        clearForm();
+        getGeneratedID();
+        new Alert(Alert.AlertType.INFORMATION, "Order is completed!").show();
     }
 
-    @FXML
-    public void getUserID(String userID) {
-        this.userIDInOrder = userID;
+    public void btnClearOnClick(ActionEvent actionEvent) {
+        clearForm();
+        getGeneratedID();
     }
-
 
     public void getGeneratedID() {
-        String setOrderid = orderService.generateOrderID();
-        lblOrderID.setText(setOrderid);
+        String setOrderId = orderService.generateOrderID();
+        lblOrderID.setText(setOrderId);
         lblDate.setText(String.valueOf(LocalDate.now()));
     }
 
-    public void clearForm(){
+    public void clearForm() {
         lblOrderID.setText("");
         lblEmpId.setText("");
         lblDate.setText("");
@@ -179,6 +184,7 @@ public class makeOrderFormController implements Initializable {
         checkBoxCash.setSelected(false);
         lblSubTotal.setText("");
         lblTotal.setText("");
+        selectedProducts.clear();
     }
 
     public void loadTable() {
@@ -186,13 +192,11 @@ public class makeOrderFormController implements Initializable {
         tblProducts.setItems(load);
     }
 
+    public void btnGentsOnClick(ActionEvent actionEvent) {}
 
-    public void btnGentsOnClick(ActionEvent actionEvent) {
-    }
+    public void btnLadiesOnClick(ActionEvent actionEvent) {}
 
-    public void btnLadiesOnClick(ActionEvent actionEvent) {
-    }
+    public void btnKidsOnClick(ActionEvent actionEvent) {}
 
-    public void btnKidsOnClick(ActionEvent actionEvent) {
-    }
 }
+

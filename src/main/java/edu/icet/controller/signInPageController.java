@@ -112,13 +112,11 @@ public class signInPageController implements Initializable {
                 new Alert(Alert.AlertType.INFORMATION,"Incorrect user ID or password !").show();
             }
         }
-
-
     }
 
     @FXML
     void btnSignUp2OnClick(ActionEvent event) {
-
+        //======== TRANSFER LAYERS=======
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.7));
         slide.setNode(layer1);
@@ -133,6 +131,7 @@ public class signInPageController implements Initializable {
         btnEmpSignIn.setVisible(false);
         lblManTitle.setVisible(false);
         btnManSignUp2.setVisible(false);
+        lblForgotPassword.setVisible(false);
 
         lblSignUp.setVisible(true);
         txtManSignUpEmail.setVisible(true);
@@ -157,7 +156,7 @@ public class signInPageController implements Initializable {
             txtManSignUpReEnterPswrd.setText("");
         }else {
             lblPswrdError1.setVisible(false);
-
+            lblForgotPassword.setVisible(true);
 
             //======================PASS OWNER'S DETAILS TO SERVICE LAYER=====================
             String ID =  ownerService.generateOwnerID();
@@ -202,7 +201,6 @@ public class signInPageController implements Initializable {
             txtManSignUpReEnterPswrd.setVisible(false);
             lblPasswordTitle.setVisible(false);
         }
-
     }
 
     public void passwordUpdateOnClick(MouseEvent mouseEvent) {

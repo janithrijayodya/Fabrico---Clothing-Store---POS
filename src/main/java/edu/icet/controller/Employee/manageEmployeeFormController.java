@@ -23,18 +23,6 @@ public class manageEmployeeFormController implements Initializable {
     @FXML
     public TextField txtEmpPassword;
     @FXML
-    private Button btnEmpAdd;
-    @FXML
-    private Button btnEmpRemove;
-    @FXML
-    private Button btnEmpSearch;
-    @FXML
-    private Button btnEmpUpdate;
-    @FXML
-    private Button btnEmployee;
-    @FXML
-    private Button btnSupplier;
-    @FXML
     private TextField txtEmpCompany;
     @FXML
     private TextField txtEmpEmail;
@@ -73,7 +61,6 @@ public class manageEmployeeFormController implements Initializable {
             getGeneratedID();
             new Alert(Alert.AlertType.INFORMATION,"Employee is NOT added !! ").show();
         }
-
     }
 
     @FXML
@@ -95,7 +82,6 @@ public class manageEmployeeFormController implements Initializable {
 
         String EmpId = txtEmpId.getText();
         EmployeeEntity employee = employeeService.searchEmployee(EmpId);
-
         if( employee != null){
             txtEmpId.setText(employee.getEmpId());
             txtEmpName.setText(employee.getEmpName());

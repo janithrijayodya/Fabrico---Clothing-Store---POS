@@ -54,9 +54,4 @@ public class supplierReportFormController implements Initializable {
         colSupplierEmail.setCellValueFactory(new PropertyValueFactory<>("SupplierEmail"));
         loadTable();
     }
-
-    @FXML
-    void btnSupPrintOnClick(ActionEvent event) {
-
-    }
 }

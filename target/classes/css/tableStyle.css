@@ -1,55 +1,21 @@
-/* Apply styles to the TableView */
 .table-view {
-    -fx-background-color: transparent; /* Remove the white background around the table */
-    -fx-border-color: black; /* Basic black border around the entire table */
-    -fx-border-width: 1px; /* Set the thickness of the border */
-    -fx-padding: 0px; /* Remove padding to erase white color around the table */
-    -fx-table-cell-border-color: transparent; /* No inner cell borders */
+    -fx-background-color: #EEE1F6;
+    -fx-font-family: Arial;
+    -fx-text-fill: black;
 }
 
-/* Style the TableHeaderRow (the table header) */
-.table-view .column-header-background {
-    -fx-background-color: #C1A8DB; /* Light purple background for the header */
-    -fx-border-color: transparent; /* No border around header background */
+.table-view .column-header {
+    -fx-background-color: #CDB4DB;
+    -fx-text-fill: black;
+    -fx-font-family: Arial;
 }
 
-.table-view .table-column {
-    -fx-background-color: #C1A8DB; /* Light purple background for individual header columns */
-    -fx-font-size: 12px;
-    -fx-font-family: "Arial";
-    -fx-text-fill: #3E2C5A; /* Text color for the header */
+.table-view .cell {
+    -fx-background-color: #EEE1F6;
+    -fx-text-fill: black;
+    -fx-font-family: Arial;
 }
 
-/* Add a bottom border to the header */
-.table-view .column-header-background .label {
-    -fx-border-color: #D3C6E0; /* Soft line under the header */
-    -fx-border-width: 0 0 2px 0; /* Only add a bottom border */
-    -fx-padding: 10px 0 5px 10px; /* Adjust padding to give space above the line */
+.table-row-cell:selected {
+    -fx-background-color: #CDB4DB;
 }
-
-/* Style each individual row */
-.table-row-cell {
-    -fx-background-color: #FAF9F6; /* Off-white background for all rows */
-    -fx-border-width: 0 0 1 0; /* Add only a bottom border to each row */
-    -fx-border-color: #D3C6E0; /* Subtle row separator */
-    -fx-alignment: CENTER_LEFT;
-}
-
-
-.table-cell {
-    -fx-padding: 6px 8px;
-    -fx-font-size: 12px;
-    -fx-font-family: "Arial";
-    -fx-text-fill: #3E2C5A; /* Text color for table cells */
-    -fx-border-color: transparent; /* No borders around table cells */
-}
-
-/* Change the scroll bar color */
-.scroll-bar:horizontal .thumb {
-    -fx-background-color: #C1A8DB;
-}
-
-.scroll-bar:vertical .thumb {
-    -fx-background-color: #C1A8DB;
-}
-

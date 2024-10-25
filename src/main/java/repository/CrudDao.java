@@ -1,6 +1,5 @@
 package repository;
 
-import edu.icet.entity.EmployeeEntity;
 import javafx.collections.ObservableList;
 
 public interface CrudDao <T> extends SuperDao {

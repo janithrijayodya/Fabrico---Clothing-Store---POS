@@ -43,7 +43,6 @@ public class employeeReportFormController implements Initializable {
         tblEmployee.setItems(load);
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lblDate.setText(String.valueOf(LocalDate.now()));
@@ -52,15 +51,8 @@ public class employeeReportFormController implements Initializable {
         colEmpName.setCellValueFactory(new PropertyValueFactory<>("EmpName"));
         colEmpCompany.setCellValueFactory(new PropertyValueFactory<>("EmpCompany"));
         colEmpEmail.setCellValueFactory(new PropertyValueFactory<>("EmpEmail"));
-        colEmpAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-
+        colEmpAddress.setCellValueFactory(new PropertyValueFactory<>("EmpAddress"));
         loadTable();
-    }
-
-
-    @FXML
-    void btnEmpPrintOnClick(ActionEvent event) {
-
     }
 
 }

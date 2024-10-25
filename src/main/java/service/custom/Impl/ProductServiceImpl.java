@@ -1,8 +1,6 @@
 package service.custom.Impl;
 
-import edu.icet.entity.EmployeeEntity;
 import edu.icet.entity.ProductEntity;
-import edu.icet.entity.SupplierEntity;
 import edu.icet.util.DaoType;
 import javafx.collections.ObservableList;
 import org.modelmapper.ModelMapper;
@@ -24,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public String generateProductID() {
-       return productDao.generateID();
+        return productDao.generateID();
     }
 
     @Override
